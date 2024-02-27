@@ -1,0 +1,55 @@
+function Device(name) {
+  this.name = name;
+}
+
+Device.prototype.getWork = function () {
+    let work = false
+    if (this.electric && this.turnOn) {
+      work = true;
+    } else {
+      work = false;
+      }
+    return (work);
+    }
+ 
+function ElectricDevice(name, wattage, electric, turnOn) {
+  this.name = name;
+  this.wattage = wattage;
+  this.electric = electric;
+  this.turnOn = turnOn;
+  this.getWattage = function(){
+    console.log(wattage)
+  }
+}
+  
+ElectricDevice.prototype = new Device();
+
+
+let sumWattage = function(){
+    let sum = 0;
+    for(let value of EleDiv){
+    if (value.getWork()){
+        sum += value.wattage;
+    }else{
+        sum;
+    }
+      
+  }
+  return sum;
+}
+
+
+const hairdryer = new ElectricDevice(name = "hairdryer", wattage = 2, electric = true, turnOn = false);
+const teapot = new ElectricDevice(name = "teapot", wattage = 3, electric = true, turnOn = true);
+const fridge = new ElectricDevice(name = "fridge", wattage = 0.4, electric = true, turnOn = true);
+let EleDiv = [hairdryer, teapot, fridge];
+
+console.log(hairdryer.getWork());
+
+console.log(teapot.getWork());
+
+console.log(fridge.getWork());
+
+console.log(sumWattage(EleDiv));
+teapot.getWattage();
+fridge.getWattage();
