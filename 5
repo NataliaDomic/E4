@@ -1,0 +1,53 @@
+class ElectricDevice {
+    constructor(name, wattage) {
+        this.name = name;
+        this.wattage = wattage;
+        this.isPlugged = false;
+    }
+    
+    turnOn() {
+        console.log(this.name + " is turned on!");
+        this.isPlugged = true;
+    }
+
+    turnOff() {
+        console.log(this.name + " is turned off");
+        this.isPlugged = false;
+    }
+}
+
+class Hairdryers extends ElectricDevice {
+    constructor(name, wattage, category, label, isPlugged) {
+        super(name, wattage);
+        this.category = category;
+        this.label = label;
+        this.isPlugged = isPlugged;
+    }
+}
+
+class Teapots extends ElectricDevice {
+    constructor(name, wattage, label, color, isPlugged) {
+        super(name, wattage);
+        this.label = label;
+        this.color = color;
+        this.isPlugged = isPlugged;
+    }
+}
+
+class Fridges extends ElectricDevice {
+    constructor(name, wattage, label, color, height, isPlugged) {
+        super(name, wattage);
+        this.label = label;
+        this.color = color;
+        this.height = height;
+        this.isPlugged = isPlugged;
+    }
+}
+
+const hairdryer = new Hairdryers('hairdryer', 2, 'Pro', 'Rowenta', false);
+const teapot = new Teapots('teapot', 3, 'Bosh', 'black', false);
+const fridge = new Fridges('fridge', 0.4, 'Indesit', 'white', 180, false);
+
+hairdryer.turnOn();
+teapot.turnOn();
+fridge.turnOff();
